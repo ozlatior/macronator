@@ -1,5 +1,5 @@
 ---
-Macronator: Macro Replacement and Code Generator for nodejs
+Macronator - Macro Replacement and Code Generator for nodejs
 ---
 
 Macronator is a macro replacement utility for easy generation of boilerplate or
