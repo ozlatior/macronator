@@ -1,3 +1,4 @@
+const path = require("path");
 const vm = require("vm");
 
 /*
@@ -203,8 +204,12 @@ const extractMacros = function (rows) {
 		}
 
 		/* any state, unexpected pattern */
-		if (e && e.pattern !== "MACRO_END")
-			throw new MacroError("Unexpected pattern", rows[i], i+1, "Unexpected " + e.pattern + " pattern");
+		if (e) {
+			if (e.pattern === "MACRO_END")
+				code.push(rows[i]);
+			else
+				throw new MacroError("Unexpected pattern", rows[i], i+1, "Unexpected " + e.pattern + " pattern");
+		}
 	}
 	return {
 		macros: ret,
@@ -317,15 +322,19 @@ const replaceTokens = function(tokens, template) {
  *
  * Returns array of strings, the expanded macro body with replaced tokens
  */
-const runMacro = function(macro) {
+const runMacro = function(macro, scriptPath) {
+	if (scriptPath === undefined)
+		scriptPath = __dirname;
 	let ret = [];
 	let header = macro.header.join("\n");
 	header += "\n__done__(TOKENS, RANGES)";
 	let tokens = null;
 	let ranges = null;
 	let ctx = vm.createContext({
+		__dirname: scriptPath,
 		console: console,
 		require: require,
+		path: path,
 		__done__: (TOKENS, RANGES) => { tokens = TOKENS; ranges = RANGES }
 	});
 	vm.runInContext(header, ctx);
@@ -347,9 +356,9 @@ const runMacro = function(macro) {
  * `code`: array of strings, the code after macro extraction (with placeholders for macro output)
  * Returns array of strings, the code with extracted macro expanded output
  */
-const processMacros = function(macros, code) {
+const processMacros = function(macros, code, scriptPath) {
 	for (let i=0; i<macros.length; i++) {
-		let res = runMacro(macros[i]);
+		let res = runMacro(macros[i], scriptPath);
 		let index = code.indexOf("<<< MACRO BODY " + i + " >>>");
 		res.unshift(1);
 		res.unshift(index);
