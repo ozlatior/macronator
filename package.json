@@ -6,14 +6,19 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "assert-one": "0.0.1-c",
     "mocha": "^8.1.3"
   },
   "keywords": [
-    "macro", "macro replacement", "code generation", "macronator",
-	"template", "templating", "boilerplate"
+    "macro",
+    "macro replacement",
+    "code generation",
+    "macronator",
+    "template",
+    "templating",
+    "boilerplate"
   ],
   "author": "Octav Zlatior",
   "license": "ISC",
