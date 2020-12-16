@@ -89,8 +89,10 @@ try {
 	code = Macros.processMacros(macros.macros, macros.code, scriptPath);
 }
 catch (e) {
-	throw e;
-	die(e.message);
+	if (e instanceof MacroError)
+		die(e.message);
+	else
+		throw e;
 }
 
 if (inputFile === outputFile) {
