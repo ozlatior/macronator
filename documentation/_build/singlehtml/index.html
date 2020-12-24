@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>macronator 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="macronator-documentation">
+<h1>macronator Documentation<a class="headerlink" href="#macronator-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-classes/MacroError"></span><div class="section" id="class-macroerror-internal-only">
+<h2>class MacroError (internal only)<a class="headerlink" href="#class-macroerror-internal-only" title="Permalink to this headline">¶</a></h2>
+<p><strong>Base class:</strong> Error</p>
+<div class="section" id="constructor-message-row-index-details">
+<h3>Constructor (message, row, index, details)<a class="headerlink" href="#constructor-message-row-index-details" title="Permalink to this headline">¶</a></h3>
+<p>Constructor</p>
+<ul class="simple">
+<li><p><cite>error</cite>: string, error message to display</p></li>
+<li><p><cite>row</cite>: string, optional, the row where the error occured</p></li>
+<li><p><cite>index</cite>: number, optional, the row number where the error occured</p></li>
+<li><p><cite>details</cite>: string, optional, additional details on error condition</p></li>
+</ul>
+</div>
+<div class="section" id="member-methods">
+<h3>Member methods<a class="headerlink" href="#member-methods" title="Permalink to this headline">¶</a></h3>
+<p>This class does not define any member methods</p>
+</div>
+</div>
+<span id="document-units/cli"></span><div class="section" id="cli-js">
+<h2>./cli.js<a class="headerlink" href="#cli-js" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="internal-functions">
+<h3>Internal Functions<a class="headerlink" href="#internal-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="die-error">
+<h4>die (error)<a class="headerlink" href="#die-error" title="Permalink to this headline">¶</a></h4>
+<p>Exit application in case of error</p>
+<ul class="simple">
+<li><p><cite>error</cite>: string, error message to display</p></li>
+</ul>
+<p>Prints the error information and exits with code -1</p>
+</div>
+<div class="section" id="printhelpandexit">
+<h4>printHelpAndExit ()<a class="headerlink" href="#printhelpandexit" title="Permalink to this headline">¶</a></h4>
+<p>Print help message and exit</p>
+</div>
+<div class="section" id="printreadmeandexit">
+<h4>printReadmeAndExit ()<a class="headerlink" href="#printreadmeandexit" title="Permalink to this headline">¶</a></h4>
+<p>Print contents of readme file and exit</p>
+</div>
+</div>
+<div class="section" id="variable-declarations">
+<h3>Variable Declarations<a class="headerlink" href="#variable-declarations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="let-args">
+<h4>let args<a class="headerlink" href="#let-args" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>not exported</p></li>
+<li><p>initial value: <cite>process.argv.slice(2)</cite></p></li>
+</ul>
+</div>
+<div class="section" id="let-inputfile">
+<h4>let inputFile<a class="headerlink" href="#let-inputfile" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>not exported</p></li>
+<li><p>initial value: <cite>args[0]</cite></p></li>
+</ul>
+</div>
+<div class="section" id="let-outputfile">
+<h4>let outputFile<a class="headerlink" href="#let-outputfile" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>not exported</p></li>
+<li><p>initial value: <cite>args[1]</cite></p></li>
+</ul>
+</div>
+<div class="section" id="let-scriptpath">
+<h4>let scriptPath<a class="headerlink" href="#let-scriptpath" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>not exported</p></li>
+<li><p>initial value: <cite>path.join(process.cwd(), inputFile.split(“/”).slice(0, -1).join(“/”))</cite></p></li>
+</ul>
+<p>Generated at Thu Dec 24 2020 17:53:43 GMT+0800 (Central Indonesia Time)</p>
+</div>
+</div>
+</div>
+<span id="document-units/Macros"></span><div class="section" id="src-macros-js">
+<h2>./src/macros.js<a class="headerlink" href="#src-macros-js" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="exported-functions">
+<h3>Exported Functions<a class="headerlink" href="#exported-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="macros-extractpattern-row">
+<h4>macros.extractPattern (row)<a class="headerlink" href="#macros-extractpattern-row" title="Permalink to this headline">¶</a></h4>
+<p>Extract a pattern from a single row</p>
+<ul class="simple">
+<li><p><cite>row</cite>: string, row where to look for pattern</p></li>
+</ul>
+<p>Returns a single pattern object or <cite>null</cite> if pattern not found. Pattern object fields:</p>
+<ul class="simple">
+<li><p><cite>pattern</cite>: string, name of the matched pattern (not the pattern itself), eg <cite>MACRO_HEADER</cite></p></li>
+<li><p><cite>args</cite>: object, arguments for this pattern (eg <cite>name</cite>)</p></li>
+</ul>
+</div>
+<div class="section" id="macros-extractmacros-rows">
+<h4>macros.extractMacros (rows)<a class="headerlink" href="#macros-extractmacros-rows" title="Permalink to this headline">¶</a></h4>
+<p>Extract macros from a set of rows of code</p>
+<ul class="simple">
+<li><p><cite>rows</cite>: array of strings, the code as read from a file</p></li>
+</ul>
+<p>Macro state machine</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>state 0: no current block</dt><dd><ul>
+<li><p>no pattern -&gt; do nothing</p></li>
+<li><p>header block start -&gt; create new block, state 1</p></li>
+<li><p>body block start -&gt; find block, state 2</p></li>
+<li><p>other pattern -&gt; error</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>state 1: header block</dt><dd><ul>
+<li><p>no pattern -&gt; add to current header block</p></li>
+<li><p>header block end -&gt; state 0</p></li>
+<li><p>general block end -&gt; state 0</p></li>
+<li><p>body block start, same block -&gt; state 2</p></li>
+<li><p>other pattern -&gt; error</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>state 2: body block</dt><dd><ul>
+<li><p>no pattern -&gt; add to current body block</p></li>
+<li><p>body block end -&gt; state 0</p></li>
+<li><p>general block end -&gt; state 0</p></li>
+<li><p>header block start, different block -&gt; state 1</p></li>
+<li><p>other pattern -&gt; error</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Returns object, a list of macros as well as the code rows without the macro code</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>macros</cite>: array of objects, the list of macros found in code, each described by:</dt><dd><ul>
+<li><p><cite>name</cite>: string, name if any</p></li>
+<li><p><a href="#id1"><span class="problematic" id="id2">`</span></a>header: array of strings, macro header code</p></li>
+<li><p><cite>body</cite>: array of strings, macro body code (this will be duplicated with tokens replaced)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><cite>code</cite>: array of strings, the remaining rows of code; header bodies will be replaced by a token such as <cite>&lt;&lt;&lt; MACRO
+BODY [i] &gt;&gt;&gt;</cite> where i is the actual index in the macros array</p></li>
+</ul>
+</div>
+<div class="section" id="macros-expandrange-range">
+<h4>macros.expandRange (range)<a class="headerlink" href="#macros-expandrange-range" title="Permalink to this headline">¶</a></h4>
+<p>Get an array of all possible values for a range</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>range</cite>: range object, contains keys and corresponding values depending on range type</dt><dd><ul>
+<li><p><cite>{ each: &lt;object&gt; }</cite>: each value in an object, produces an array of all values</p></li>
+<li><p><cite>{ keys: &lt;object&gt; }</cite>: all keys in an object, produces an array of all keys (strings or numbers)</p></li>
+<li><p><cite>{ values: &lt;array&gt; }</cite>: explicit list of values, copies array (eg [ 0, 5, 10 ])</p></li>
+<li><p><cite>{ from: &lt;number&gt;, to: &lt;number&gt; }</cite>: all integers between <cite>from</cite> and <cite>to</cite>, inclusive</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Returns array, corresponding array of values for the range object</p>
+</div>
+<div class="section" id="macros-combineranges-ranges">
+<h4>macros.combineRanges (ranges)<a class="headerlink" href="#macros-combineranges-ranges" title="Permalink to this headline">¶</a></h4>
+<p>Get an array of all possible combinations for a set of ranges</p>
+<ul class="simple">
+<li><p><cite>ranges</cite>: array of arrays, all possible values for each range, eg <cite>[ [ 0, 1, 2 ], [ ‘a’, ‘b’ ] ]</cite></p></li>
+</ul>
+<p>Returns array of arrays, all possible combinations for input ranges, eg <cite>[ [ 0, ‘a’ ], [ 0, ‘b’ ], [ 1, ‘a’ ], [ 1, ‘b’
+], [ 2, ‘a’ ], [ 2, ‘b’ ] ]</cite></p>
+</div>
+<div class="section" id="macros-replacetokens-tokens-template">
+<h4>macros.replaceTokens (tokens, template)<a class="headerlink" href="#macros-replacetokens-tokens-template" title="Permalink to this headline">¶</a></h4>
+<p>Expand and replace tokens in template code</p>
+<ul class="simple">
+<li><p><cite>tokens</cite>: array of token objects, each token object contains token name fields and values: <cite>{ &lt;token1&gt;: &lt;value1&gt;,
+&lt;token2&gt;: &lt;value2&gt;, …</cite>; token names without “%” marks</p></li>
+<li><p><cite>template</cite>: array of strings, template rows of code</p></li>
+</ul>
+<p>For each token array element, it replaces all tokens in the template code.</p>
+<p>Returns: array of strings, generated code rows for all tokens in array</p>
+</div>
+<div class="section" id="macros-runmacro-macro-scriptpath">
+<h4>macros.runMacro (macro, scriptPath)<a class="headerlink" href="#macros-runmacro-macro-scriptpath" title="Permalink to this headline">¶</a></h4>
+<p>Execute macro code and generate code based on template</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>macro</cite>: macro object</dt><dd><ul>
+<li><p><cite>header</cite>: array of strings, macro header code (will run in a vm)</p></li>
+<li><p><cite>body</cite>: array of strings, code template rows (with tokens to be replaced)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><cite>scriptPath</cite>: string, the path to the code being processed, this will be used as __dirname in macro execution</p></li>
+</ul>
+<p>This function executes the header code to obtain the <cite>TOKENS</cite> function and <cite>RANGES</cite> object, then it obtains the actual
+range values and replaces the tokens in the body code</p>
+<p>Returns array of strings, the expanded macro body with replaced tokens</p>
+</div>
+<div class="section" id="macros-processmacros-macros-code-scriptpath">
+<h4>macros.processMacros (macros, code, scriptPath)<a class="headerlink" href="#macros-processmacros-macros-code-scriptpath" title="Permalink to this headline">¶</a></h4>
+<p>Process extracted macros on remaining code</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>macros</cite>: array of objects, extracted macro objects</dt><dd><ul>
+<li><p><cite>header</cite>: array of strings, macro header code (will run in a vm)</p></li>
+<li><p><cite>body</cite>: array of strings, code template rows (with tokens to be replaced)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><cite>code</cite>: array of strings, the code after macro extraction (with placeholders for macro output)</p></li>
+<li><p><cite>scriptPath</cite>: string, the path to the code being processed, this will be used as __dirname in macro execution</p></li>
+</ul>
+<p>Returns array of strings, the code with extracted macro expanded output</p>
+</div>
+</div>
+<div class="section" id="variable-declarations">
+<h3>Variable Declarations<a class="headerlink" href="#variable-declarations" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="const-patterns">
+<h4>const PATTERNS<a class="headerlink" href="#const-patterns" title="Permalink to this headline">¶</a></h4>
+<p>Macro pattern definitions and arguments <cite>MACRO_HEADER</cite>: a macro header, eg <cite>/* MACRO.HEADER &lt;name&gt;</cite> - <cite>name</cite>: string,
+the name of this macro, if any <cite>MACRO_BODY</cite>: a macro body, eg <cite>/* MACRO.BODY &lt;name&gt;</cite> - <cite>name</cite>: string, the name of this
+macro, if present, it must match name in header <cite>MACRO_END</cite>: a single end of comment <cite>*/</cite> ends a macro header or body;
+no arguments</p>
+<ul class="simple">
+<li><p>not exported</p></li>
+<li><p>initial value: <cite>{</cite></p></li>
+</ul>
+<p>Generated at Thu Dec 24 2020 17:53:43 GMT+0800 (Central Indonesia Time)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">macronator</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-classes/MacroError">class MacroError (internal only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-units/cli">./cli.js</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-units/Macros">./src/macros.js</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Octav Zlatior.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
