@@ -317,6 +317,7 @@ const replaceTokens = function(tokens, template) {
  * `macro`: macro object
  * - `header`: array of strings, macro header code (will run in a vm)
  * - `body`: array of strings, code template rows (with tokens to be replaced)
+ * `scriptPath`: string, the path to the code being processed, this will be used as __dirname in macro execution
  * This function executes the header code to obtain the `TOKENS` function and `RANGES` object,
  * then it obtains the actual range values and replaces the tokens in the body code
  *
@@ -354,6 +355,7 @@ const runMacro = function(macro, scriptPath) {
  * - `header`: array of strings, macro header code (will run in a vm)
  * - `body`: array of strings, code template rows (with tokens to be replaced)
  * `code`: array of strings, the code after macro extraction (with placeholders for macro output)
+ * `scriptPath`: string, the path to the code being processed, this will be used as __dirname in macro execution
  * Returns array of strings, the code with extracted macro expanded output
  */
 const processMacros = function(macros, code, scriptPath) {
